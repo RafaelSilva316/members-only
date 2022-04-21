@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <!-- prettier-ignore -->
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <!-- prettier-ignore -->
+    <a href="/signup">SIGN UP</a>
+    <!-- prettier-ignore -->
+    <% if (typeof user !== 'undefined') { %>
+      <!-- prettier-ignore -->
+      <a href="/logout">LOG OUT</a>
+
+      <% if (user.membership_status) { %>
+        <p>You're a member</p>
+        <a href="/newMessage">New message</a>
+      <% } else { %>
+        <a href="/join">JOIN</a>
+      <% } %>
+      
+      <!-- prettier-ignore -->
+    <% } else { %>
+      <!-- prettier-ignore -->
+      <a href="/login">LOG IN</a>
+    <% } %>
+
+    <!-- prettier-ignore -->
+    <% if (typeof messages != 'undefined') { %>
+      <ul>
+      <% messages.forEach(msg => { %>
+        <li> 
+          <p><%= msg.message %> </p>
+          <% if (typeof user !== 'undefined' && user.membership_status) { %>
+            <p><%= msg.author %> </p>
+            <p><%= msg.date %> </p>
+            <% if (user.is_admin) { %>
+              <a href="/delete/<%= msg._id %>">X</a>
+            <% } %>
+            
+            
+          <% } %>
+        </li>
+      <% }) %>
+    </ul>
+    <% } %>
+
+  </body>
+</html>

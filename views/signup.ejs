@@ -1,0 +1,57 @@
+<div class="form-page">
+  <form class="form" method="POST" action="">
+    <div class="form-box">
+      <label for="first_name">First Name</label>
+      <!-- prettier-ignore -->
+      <input type="text" name="first_name" id="first_name" value=<%= typeof newUser!='undefined' ? newUser.first_name : '' %> required>
+    </div>
+
+    <div class="form-box">
+      <label for="last_name">Last Name</label>
+      <!-- prettier-ignore -->
+      <input type="text" name="last_name" id="last_name" value=<%= typeof newUser!='undefined' ? newUser.last_name : '' %> required>
+    </div>
+
+    <div class="form-box">
+      <label for="username">Username</label>
+      <!-- prettier-ignore -->
+      <input type="email" name="username" id="username" value=<%= typeof newUser!='undefined' ? newUser.username : '' %> required>
+    </div>
+
+    <div class="form-box">
+      <label for="password">Password</label>
+      <!-- prettier-ignore -->
+      <input type="password" name="password" id="password" required>
+    </div>
+
+    <div class="form-box">
+      <label for="confirm_password">Confirm Password</label>
+      <!-- prettier-ignore -->
+      <input type="password" name="confirm_password" id="confirm_password" required>
+    </div>
+
+    <div class="form-box">
+      <label for="id_admin">Admin</label>
+      <!-- prettier-ignore -->
+      <input type="checkbox" name="is_admin" id="is_admin" >
+    </div>
+
+    <div class="form-btn-box">
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+  <!-- prettier-ignore -->
+  <div class="errors">
+    <!-- prettier-ignore -->
+    <% if (typeof errors != 'undefined') { %> 
+      <!-- prettier-ignore -->
+      <% errors.forEach(error => { %>
+        <!-- prettier-ignore -->
+        <span><%= error.msg %> </span>
+        <!-- prettier-ignore -->
+        <% console.log(error) %> 
+        <!-- prettier-ignore -->
+      <% }) %>
+    <% } %>
+  </div>
+</div>
