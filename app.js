@@ -1,4 +1,3 @@
-const dotenv = require("dotenv");
 const createError = require("http-errors");
 const express = require("express");
 const path = require("path");
@@ -12,6 +11,7 @@ const LocalStrategy = require("passport-local").Strategy;
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const passport = require("./passport-config");
+const dotenv = require("dotenv");
 
 const User = require("./models/User");
 const Secret = require("./models/Secret");
@@ -39,7 +39,7 @@ app.use(
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
-    // store: new MongoStore({ mongooseConnection: mongoose.connection }),
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
   })
 );
 
@@ -55,7 +55,7 @@ app.use(logger("dev"));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookieParser(process.env.SECRET));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
