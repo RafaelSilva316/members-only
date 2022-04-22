@@ -1,6 +1,4 @@
-if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config();
-}
+const dotenv = require("dotenv");
 const createError = require("http-errors");
 const express = require("express");
 const path = require("path");
@@ -22,7 +20,7 @@ const usersRouter = require("./routes/users");
 
 const app = express();
 
-// dotenv.config();
+dotenv.config();
 
 const dev_db_url = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.fhunm.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 
