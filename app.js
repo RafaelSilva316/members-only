@@ -23,7 +23,10 @@ const app = express();
 const dev_db_url = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.fhunm.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 
 const mongoDB = process.env.MONGODB_URI || dev_db_url;
-mongoose.connect(mongoDB, { useUnifiedTopology: true, useNewUrlParser: true });
+mongoose
+  .connect(mongoDB, { useUnifiedTopology: true, useNewUrlParser: true })
+  .then(() => console.log("Database Connected"))
+  .catch((err) => console.log(err));
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "mongo connection error"));
 
