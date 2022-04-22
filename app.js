@@ -11,7 +11,7 @@ const LocalStrategy = require("passport-local").Strategy;
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const passport = require("./passport-config");
-const dotenv = require("dotenv");
+require("dotenv").config();
 
 const User = require("./models/User");
 const Secret = require("./models/Secret");
@@ -19,8 +19,6 @@ const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 
 const app = express();
-
-dotenv.config();
 
 const dev_db_url = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.fhunm.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 
@@ -55,7 +53,7 @@ app.use(logger("dev"));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser(process.env.SECRET));
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
