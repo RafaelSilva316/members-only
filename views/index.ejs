@@ -6,47 +6,50 @@
   </head>
   <!-- prettier-ignore -->
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <!-- prettier-ignore -->
-    <a href="/signup">SIGN UP</a>
-    <!-- prettier-ignore -->
-    <% if (typeof user !== 'undefined') { %>
+    <div class="banner">
+      <div class="intro">
+        <h1 class="title">Members Only</h1>
+        <p>Welcome <%= title %></p>
+      </div>
+    </div>
+    
+    <main>
       <!-- prettier-ignore -->
-      <a href="/logout">LOG OUT</a>
-
-      <% if (user.membership_status) { %>
-        <p>You're a member</p>
-        <a href="/newMessage">New message</a>
+    <div class="options">
+      <a href="/signup">SIGN UP</a>
+      <!-- prettier-ignore -->
+      <% if (typeof user !== 'undefined') { %>
+        <!-- prettier-ignore -->
+        <a href="/logout">LOG OUT</a>
+        <% if (user.membership_status) { %>
+          <p>You're a member</p>
+          <a href="/newMessage">New message</a>
+        <% } else { %>
+          <a href="/join">JOIN</a>
+        <% } %>
       <% } else { %>
-        <a href="/join">JOIN</a>
+        <a href="/login">LOG IN</a>
       <% } %>
-      
-      <!-- prettier-ignore -->
-    <% } else { %>
-      <!-- prettier-ignore -->
-      <a href="/login">LOG IN</a>
-    <% } %>
+    </div>  
+    
 
     <!-- prettier-ignore -->
     <% if (typeof messages != 'undefined') { %>
-      <ul>
+      <ul class="messages">
       <% messages.forEach(msg => { %>
-        <li> 
-          <p><%= msg.message %> </p>
+        <li class="message"> 
+          <p class="message-text"><%= msg.message %> </p>
           <% if (typeof user !== 'undefined' && user.membership_status) { %>
             <p><%= msg.author %> </p>
             <p><%= msg.date %> </p>
             <% if (user.is_admin) { %>
               <a href="/delete/<%= msg._id %>">X</a>
             <% } %>
-            
-            
           <% } %>
         </li>
       <% }) %>
     </ul>
     <% } %>
-
+    </main>
   </body>
 </html>

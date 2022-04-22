@@ -1,8 +1,176 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/* #E0CA3C */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-a {
-  color: #00B7FF;
+html {
+  /* font-size: 10px; */
+  /* 10px/16px =.625 */
+  font-size: 62.5%;
+  overflow-x: hidden;
+  /* doesnt work on safari or edge */
+  /* scroll-behavior: smooth; */
+}
+body {
+  font-family: "Work Sans", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #312f20;
+  /* background-color: #efffff; */
+}
+
+.home-link {
+  text-align: right;
+  display: block;
+  margin-top: 3.6rem;
+  margin-right: 2.4rem;
+}
+
+.content {
+  max-width: 90rem;
+  margin: 0 auto;
+  background-color: #fff;
+  border: #dfefef 1px solid;
+}
+
+.banner {
+  background-color: #f8f3d4;
+  margin-top: 3.2rem;
+}
+
+.intro {
+  margin-bottom: 4.2rem;
+  margin: 0 5.6rem;
+  padding: 2.4rem 0;
+}
+
+h1 {
+  color: #e0ca3c;
+  font-size: 2.8rem;
+}
+
+.title {
+  font-style: italic;
+  color: #e0ca3c;
+  margin-bottom: 1rem;
+}
+
+.intro p {
+  font-size: 1.2rem;
+}
+
+main {
+  margin: 5.6rem;
+  margin-top: 2.8rem;
+}
+
+.options {
+  font-size: 1.4rem;
+  display: flex;
+  padding: 2.4rem 0;
+  gap: 2.4rem;
+}
+
+a:link,
+a:visited {
+  /* background-color: #a9fda1; */
+  text-decoration: none;
+  color: #9c8802;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+}
+
+a:hover {
+  color: #d3bc2a;
+}
+
+a:active {
+  /* background-color: #a9fda1; */
+  color: #3d3502;
+}
+
+.messages {
+  list-style: none;
+  padding: 6.8rem;
+}
+
+.message {
+  background-color: #f8f3d4;
+  margin-bottom: 2.8rem;
+  padding: 1.2rem 2.4rem;
+  font-size: 1rem;
+}
+
+.message p {
+  margin-bottom: 0.6rem;
+  color: #534e27;
+}
+
+p.message-text {
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  color: #2c2702;
+}
+
+.form-page {
+  margin: 0 auto;
+  margin-top: 3.6rem;
+  padding: 3.6rem;
+  max-width: 75%;
+}
+
+.form-page h1 {
+  margin-bottom: 4.8rem;
+}
+
+.form {
+  /* margin-top: 3.6rem; */
+  display: flex;
+  flex-direction: column;
+  gap: 3.6rem;
+  font-size: 1.6rem;
+}
+
+.form-box {
+  display: flex;
+  gap: 1.2rem;
+  flex-direction: column;
+}
+
+input {
+  padding: 0.4rem;
+}
+
+.admin-box {
+  text-align: center;
+}
+
+.form-btn-box {
+  display: flex;
+}
+
+.btn-submit {
+  margin: 0 auto;
+  padding: 0.8rem 3.2rem;
+  background-color: #3d3502;
+  text-transform: uppercase;
+  color: #f8f3d4;
+  font-size: 1.6rem;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 10px 5px 5px 0 rgba(0, 0, 0, 0.1);
+}
+
+.btn-submit:hover {
+  box-shadow: 10px 5px 5px 0 rgba(0, 0, 0, 0.15);
+  background-color: #494006;
+  cursor: pointer;
+}
+
+.btn-submit:active {
+  box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.05);
+  background-color: #2e2801;
 }

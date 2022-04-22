@@ -39,7 +39,7 @@ router.get("/logout", (req, res) => {
 });
 
 router.get("/signup", function (req, res, next) {
-  res.render("signup");
+  res.render("signup", { newUser: req.user });
 });
 
 router.post("/signup", formController.signupPostHandler);
@@ -114,7 +114,7 @@ router.get("/", async function (req, res, next) {
   if (req.user) {
     name = req.user.first_name;
   } else {
-    name = "Welcome";
+    name = "";
   }
   res.render("index", {
     title: name,
